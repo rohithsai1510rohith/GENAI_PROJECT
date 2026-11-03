@@ -100,3 +100,4 @@ The repository comes pre-loaded with:
 - **`data/raw/`**: 20 authentic statutory legal enactments (Central Acts, Delhi, Maharashtra, Karnataka, Tamil Nadu).
 - **`data/index/`**: Pre-computed FAISS vector embeddings (`index.faiss`) and BM25 metadata (`metadata.json`).
 - Zero sample test data in production index (`isTestData: false`, `verified: true`).
+

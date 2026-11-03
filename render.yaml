@@ -74,3 +74,4 @@ databases:
     databaseName: traffic_assistant
     user: postgres
     plan: free
+

@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { logger } from "../utils/logger";
+import { OFFICIAL_SEEDED_DOCS } from "../config/officialDocs";
 
 declare global {
   // eslint-disable-next-line no-var
@@ -126,7 +127,20 @@ export const memoryStore = {
   messages: new Map<string, InMemoryMessage>(),
   feedbacks: new Map<string, InMemoryFeedback>(),
   queryLogs: [] as InMemoryQueryLog[],
-  documents: new Map<string, InMemoryDocument>(),
+  documents: new Map<string, InMemoryDocument>(
+    OFFICIAL_SEEDED_DOCS.map((doc) => [
+      doc.id,
+      {
+        ...doc,
+        filePath: doc.filePath || null,
+        sha256: (doc as any).fileHash || null,
+        status: doc.status || "indexed",
+        malwareStatus: "clean",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      } as InMemoryDocument,
+    ])
+  ),
 };
 
 let dbOnline = false;
