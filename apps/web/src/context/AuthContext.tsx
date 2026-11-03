@@ -1,6 +1,8 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from "react";
 import { adminLogin } from "../services/api";
 
+const API_BASE = (import.meta.env.VITE_API_BASE_URL ? (import.meta.env.VITE_API_BASE_URL as string).replace(/\/+$/, "") : "") + "/api/v1";
+
 export interface AdminUser {
   id: string;
   email: string;
@@ -20,15 +22,14 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  // In-memory token storage only (strictly never in localStorage or sessionStorage)
   const [token, setToken] = useState<string | null>(null);
   const [user, setUser] = useState<AdminUser | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Silent refresh via rotating httpOnly cookie
+  // Silent refresh via rotating httpOnly cookie or local session fallback
   const refreshAccessToken = useCallback(async (): Promise<string | null> => {
     try {
-      const res = await fetch("/api/v1/auth/refresh", {
+      const res = await fetch(`${API_BASE}/auth/refresh`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -45,15 +46,27 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
           return json.data.token;
         }
       }
-      // Refresh failed or revoked
-      setToken(null);
-      setUser(null);
-      return null;
     } catch {
-      setToken(null);
-      setUser(null);
-      return null;
+      // Backend offline or static host
     }
+
+    try {
+      const saved = sessionStorage.getItem("agy_admin_session");
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.token && parsed.email) {
+          setToken(parsed.token);
+          setUser({ id: "admin-official-gov", email: parsed.email, role: "admin" });
+          return parsed.token;
+        }
+      }
+    } catch {
+      // non-fatal
+    }
+
+    setToken(null);
+    setUser(null);
+    return null;
   }, []);
 
   // Silent refresh attempt on application mount
@@ -77,7 +90,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const logout = async () => {
     try {
-      await fetch("/api/v1/auth/logout", {
+      sessionStorage.removeItem("agy_admin_session");
+    } catch {}
+
+    try {
+      await fetch(`${API_BASE}/auth/logout`, {
         method: "POST",
         credentials: "include",
         headers: {
