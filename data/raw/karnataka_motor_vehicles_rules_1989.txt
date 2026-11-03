@@ -1,0 +1,14 @@
+GOVERNMENT OF KARNATAKA
+TRANSPORT DEPARTMENT
+KARNATAKA MOTOR VEHICLES RULES, 1989 (KMVR)
+State Statutory Rules governing motor vehicle licensing, high-tech electronic enforcement, tourist permits, and traffic control across Karnataka
+
+Rule 22: High-Tech Automated E-Challan Enforcement and Traffic Management
+In the State of Karnataka, traffic enforcement authorities in Bengaluru and other urban centers are authorized to deploy automated contactless enforcement systems, including Automatic Number Plate Recognition (ANPR) cameras, red light violation detection (RLVD) systems, and contactless radar guns for capturing traffic offences under Chapter XIII of the Act.
+
+Rule 126: Taxi and Maxi-Cab Fare Meters and Digital Billing
+Every motor cab operating under city permits in Karnataka shall be equipped with a digital fare meter integrated with thermal receipt printers or digital GPS-based fare calculation systems compliant with State Transport Authority regulations. Overcharging or refusing carriage to passengers without lawful cause constitutes an offence under the KMVR rules.
+
+Rule 130: Safety Equipment for Two-Wheeled Motor Vehicles
+Both the rider and pillion passenger on a two-wheeled motorcycle in Karnataka shall wear protective headgear (helmets) conforming to Indian Standards specifications (IS 4151). Failure to wear a helmet is subject to compounding under Section 194D with a fine of Rs. 1,000 and three months driving licence suspension.
+

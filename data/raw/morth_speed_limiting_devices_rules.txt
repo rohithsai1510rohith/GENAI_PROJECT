@@ -1,0 +1,33 @@
+THE CENTRAL MOTOR VEHICLES RULES, 1989
+RULE 118: FITMENT OF SPEED LIMITING DEVICE (SPEED GOVERNORS)
+Notification G.S.R. 290(E) and S.O. 1361(E) | Ministry of Road Transport and Highways (MoRTH)
+Jurisdiction: Central (Applicable throughout India) | Effective Date: 2015-10-01
+
+Rule 118: Mandatory Fitment of Speed Limiting Devices (Speed Governors)
+(1) Every transport vehicle, other than three-wheelers, quadricycles, and two-wheelers, manufactured on or after the 1st day of October, 2015, shall be equipped or fitted by the vehicle manufacturer with a speed limiting device (speed governor) having maximum pre-set speed conforming to the standard AIS:018/2001, as amended from time to time.
+(2) For transport vehicles already registered prior to 1st October, 2015, such vehicles shall be retrofitted with a speed limiting device (speed governor) conforming to standard AIS:018, certified by an authorized testing agency recognized under Rule 126 of CMVR.
+
+Rule 118(2): Category-wise Maximum Preset Speed Limits for Transport Vehicles
+(a) General Transport Vehicles (Commercial Goods Carriage and Passenger Stage/Contract Carriages): Maximum pre-set speed limit of eighty kilometres per hour (80 km/h).
+(b) Dumpers, Tankers Carrying Hazardous or Dangerous Goods: Maximum pre-set speed limit of sixty kilometres per hour (60 km/h).
+(c) School Buses and Educational Institution Vehicles: Maximum pre-set speed limit of fifty kilometres per hour (50 km/h) or forty kilometres per hour (40 km/h) as notified by the State Government.
+(d) Motor Cabs (Taxis) and M1 category passenger vehicles used for commercial transport: Maximum pre-set speed limit of eighty kilometres per hour (80 km/h).
+
+Rule 118(3): Exemptions from Speed Governor Fitment
+The provisions of Rule 118 shall not apply to:
+(a) Two-wheelers and three-wheelers;
+(b) Ambulances and fire service tenders responding to emergencies;
+(c) Police escort vehicles and armed forces tactical vehicles;
+(d) Vehicles specifically permitted by the Central Government for experimental or test purposes.
+
+Rule 118(4): Sealing, Calibration and Annual Fitness Certification
+(1) Every speed limiting device shall be securely sealed with a tamper-evident seal and registered on the Parivahan national vehicle register.
+(2) At every periodic fitness renewal under Section 56 of the Act and Rule 62 of CMVR, the testing authority shall inspect and verify the physical integrity and electronic calibration of the speed limiter.
+(3) Fitness certificate shall not be renewed if the speed governor is found missing, uncalibrated, or tampered with.
+
+Penalties for Driving Without or Tampering With Speed Limiting Device
+(1) Section 182A(4) of the Motor Vehicles Act: Whoever alters or tampers with the speed limiting governor fitted to a motor vehicle, or sells or fits a non-compliant device, shall be punishable with a fine of ten thousand rupees (Rs. 10,000) for each violation.
+(2) Section 190(2) of the Motor Vehicles Act: Any person who drives or causes or allows to be driven in any public place a motor vehicle which violates safety standards or environmental regulations shall be punishable:
+(a) For the first offence, with imprisonment for a term which may extend to three months, or with fine which may extend to ten thousand rupees (Rs. 10,000), or with both, and disqualification from holding driving licence for three months;
+(b) For any subsequent offence, with imprisonment for a term which may extend to six months, or with fine which may extend to ten thousand rupees (Rs. 10,000), or with both.
+

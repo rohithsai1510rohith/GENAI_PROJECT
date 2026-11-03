@@ -1,0 +1,59 @@
+CENTRAL MOTOR VEHICLES RULES, 1989 & MORTH OFFICIAL NOTIFICATIONS
+MINISTRY OF ROAD TRANSPORT AND HIGHWAYS (MoRTH), GOVERNMENT OF INDIA
+LEGAL COMPLIANCE: VEHICLE DOCUMENTS, LICENSING, AND E-CHALLAN PROCESS
+
+PART I: MANDATORY DOCUMENTS TO CARRY AND PRODUCE
+
+Rule 139: Production of licence and certificate of registration
+The driver or a person in charge of a motor vehicle shall produce the following documents on demand by any police officer in uniform or an officer of the Motor Vehicles Department authorized in this behalf:
+1. Valid Driving Licence (DL) appropriate for the vehicle class (Section 3 of the Act);
+2. Certificate of Registration (RC) of the motor vehicle (Section 39 of the Act);
+3. Valid Certificate of Insurance covering third-party liability (Section 146 of the Act);
+4. Valid Pollution Under Control (PUC) Certificate issued by an authorized testing station (Rule 115(7));
+5. In the case of transport/commercial vehicles: Valid Fitness Certificate (Section 56), valid Permit (Section 66), and Road Tax payment receipt.
+
+Production in Electronic Form (DigiLocker and mParivahan):
+Vide Ministry of Road Transport and Highways (MoRTH) Notification RT-11036/64/2017-MVL and amendment to Rule 139A of CMVR:
+- Documents such as Driving Licence, Registration Certificate, Insurance, and Fitness Certificate presented in electronic form through DigiLocker or the mParivahan mobile platform are legally recognized at par with physical original documents under the Information Technology Act, 2000.
+- Traffic police or enforcement officers cannot insist on physical documents if the documents are produced electronically through DigiLocker or mParivahan.
+- If physical custody of documents is required for impounding during serious offences under Section 206, enforcement agencies record the seizure electronically in the national VAHAN / SARATHI database.
+
+Grace Period to Produce Documents:
+Under Rule 139, if a driver does not possess the physical documents at the time of inspection, they are entitled to produce valid documents within 15 days before the concerned police station or enforcement authority to avoid or cancel the fine.
+
+PART II: DRIVING LICENCE VALIDITY AND RENEWAL GUIDELINES
+
+Section 14 & 15: Validity and Renewal of Driving Licences
+1. Learner's Licence (LL):
+- Valid throughout India for a period of six months from the date of issue.
+- Mandatory waiting period to apply for permanent licence: 30 days after learner's licence issuance.
+
+2. Non-Transport Driving Licence (Private Cars and Two-Wheelers):
+- Issued to individuals below 30 years of age: Valid until the holder attains 40 years of age.
+- Issued to individuals aged between 30 and 50 years: Valid for 10 years.
+- Issued to individuals aged between 50 and 55 years: Valid until the holder attains 60 years of age.
+- Issued to individuals aged above 55 years: Valid for 5 years.
+
+3. Transport / Commercial Driving Licence:
+- Valid for a period of five years (amended by 2019 Act from previously three years).
+- For transport vehicles carrying dangerous or hazardous goods: Valid for three years, subject to completion of mandatory refresher training course.
+
+4. Renewal Rules and Grace Period:
+- Application for renewal can be filed from one year prior to expiry up to one year after expiry.
+- If the application for renewal is made within one year after expiry, the licence is renewed without re-testing.
+- If the application for renewal is made more than one year after expiry, the applicant must undergo and pass the formal driving competence test again under Section 15(1).
+
+PART III: E-CHALLAN PROCEDURES AND ELECTRONIC ENFORCEMENT
+
+Central Motor Vehicles (Electronic Monitoring and Enforcement of Road Safety) Rules, 2021:
+Notification G.S.R. 575(E), MoRTH, New Delhi:
+1. Electronic Issuance:
+- Violations detected by speed cameras, Automatic Number Plate Recognition (ANPR) systems, CCTV cameras, or handheld electronic speed guns generate an electronic challan (E-Challan) automatically linked to the national Parivahan database.
+2. Notice of Violation:
+- The challan is dispatched to the registered mobile number and address of the registered vehicle owner within fifteen days of the violation.
+3. Payment and Contest:
+- The offender may pay the compounded fine online through the official Parivahan E-Challan portal (echallan.parivahan.gov.in) or state traffic police portal within sixty (60) days of challan issuance.
+- If the vehicle owner contests the violation (e.g., wrongful capture, cloned number plate, stolen vehicle), a formal grievance can be lodged through the E-Challan grievance redressal mechanism online.
+4. Non-Payment Consequences:
+- If an e-challan remains unpaid after the specified period (generally 60 to 90 days), the matter is transferred to the Virtual Court or jurisdictional Traffic Court.
+- Services on the Vahan portal (such as RC renewal, vehicle transfer, fitness certification, or permit renewal) may be locked until outstanding pending e-challans are settled.

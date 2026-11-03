@@ -1,0 +1,11 @@
+line-length = 120
+target-version = "py310"
+
+[lint]
+select = ["E", "F", "W"]
+ignore = [
+    "E501", # line too long
+    "E402", # module import not at top of file
+    "W291", # trailing whitespace
+    "W293", # blank line whitespace
+]

@@ -1,0 +1,76 @@
+services:
+  # 1. AI Service (Python FastAPI + FAISS)
+  - type: web
+    name: traffic-assistant-ai
+    runtime: python
+    buildCommand: "pip install --upgrade pip && pip install -r apps/ai-service/requirements.txt"
+    startCommand: "python -m uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: PYTHONPATH
+        value: apps/ai-service
+      - key: RAW_DATA_DIR
+        value: data/raw
+      - key: INDEX_DIR
+        value: data/index
+      - key: AI_SERVICE_SHARED_SECRET
+        generateValue: true
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+
+  # 2. Node.js API Gateway (Express + Prisma)
+  - type: web
+    name: traffic-assistant-api
+    runtime: node
+    buildCommand: "cd apps/api && npm install && npx prisma generate && npm run build"
+    startCommand: "cd apps/api && npm run start"
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.0
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: traffic-assistant-db
+          property: connectionString
+      - key: AI_SERVICE_URL
+        fromService:
+          type: web
+          name: traffic-assistant-ai
+          property: host
+      - key: AI_SERVICE_SHARED_SECRET
+        fromService:
+          type: web
+          name: traffic-assistant-ai
+          envVarKey: AI_SERVICE_SHARED_SECRET
+      - key: JWT_SECRET
+        generateValue: true
+      - key: TRUST_PROXY
+        value: "true"
+
+  # 3. React Frontend Web Application (Static Site)
+  - type: web
+    name: traffic-assistant-web
+    runtime: static
+    buildCommand: "cd apps/web && npm install && npm run build"
+    staticPublishPath: apps/web/dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: traffic-assistant-api
+          property: host
+
+databases:
+  # 4. Managed PostgreSQL Database
+  - name: traffic-assistant-db
+    databaseName: traffic_assistant
+    user: postgres
+    plan: free

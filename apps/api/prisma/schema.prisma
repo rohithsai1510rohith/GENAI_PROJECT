@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String         @id @default(uuid())
+  email          String         @unique
+  passwordHash   String
+  role           String         @default("admin")
+  failedAttempts Int            @default(0)
+  lockoutUntil   DateTime?
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @default(now()) @updatedAt
+  refreshTokens  RefreshToken[]
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  tokenHash String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  revoked   Boolean  @default(false)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  actor     String
+  action    String
+  targetId  String?
+  details   Json?
+  requestId String?
+  timestamp DateTime @default(now())
+}
+
+model Document {
+  id             String    @id @default(uuid())
+  title          String
+  officialTitle  String?
+  rawFilename    String?
+  storedFilename String?
+  fileHash       String?   @unique
+  sha256         String?
+  type           String    @default("Act") // Act, Rules, Notification
+  documentType   String?   @default("Act")
+  jurisdiction   String    @default("Central") // Central, State
+  notificationNumber String?
+  effectiveDate  String    @default("2019-09-01")
+  sourceUrl      String?
+  filePath       String?
+  status         String    @default("uploaded") // uploaded, processing, indexed, failed, inactive
+  stage          String?   @default("uploaded") // extracting, chunking, embedding, indexing, done, failed
+  stagePercent   Int?      @default(0)
+  errorMessage   String?
+  chunkCount     Int       @default(0)
+  isTestData     Boolean   @default(false)
+  verified       Boolean   @default(false)
+  verifiedBy     String?
+  verifiedAt     DateTime?
+  lastReviewedAt DateTime?
+  supersededBy   String?
+  amends         String?
+  malwareStatus  String    @default("unscanned (no ClamAV configured)")
+  indexedAt      DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @default(now()) @updatedAt
+}
+
+model ChatSession {
+  id          String    @id @default(uuid())
+  anonymousId String?
+  userId      String?
+  createdAt   DateTime  @default(now())
+  messages    Message[]
+}
+
+model Message {
+  id        String      @id @default(uuid())
+  sessionId String
+  session   ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  role      String      // user, assistant
+  content   String
+  sources   Json?       // array of SourceItem objects
+  latencyMs Int?        @default(0)
+  aborted   Boolean     @default(false)
+  errored   Boolean     @default(false)
+  createdAt DateTime    @default(now())
+  feedback  Feedback[]
+}
+
+model Feedback {
+  id          String   @id @default(uuid())
+  messageId   String
+  message     Message  @relation(fields: [messageId], references: [id], onDelete: Cascade)
+  anonymousId String?
+  rating      String   // thumbs_up, thumbs_down
+  reason      String?
+  createdAt   DateTime @default(now())
+
+  @@unique([messageId, anonymousId])
+}
+
+model QueryLog {
+  id        String   @id @default(uuid())
+  question  String
+  topScore  Float
+  answered  Boolean  @default(true)
+  latencyMs Int?     @default(0)
+  createdAt DateTime @default(now())
+}

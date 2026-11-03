@@ -1,0 +1,107 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: traffic_assistant_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: traffic_assistant
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app_network
+
+  ai-service:
+    build:
+      context: ./apps/ai-service
+      dockerfile: Dockerfile
+    container_name: traffic_assistant_ai
+    restart: unless-stopped
+    environment:
+      - AI_PORT=8000
+      - AI_HOST=0.0.0.0
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GROQ_MODEL=${GROQ_MODEL:-llama-3.3-70b-versatile}
+      - AI_SERVICE_SHARED_SECRET=${AI_SERVICE_SHARED_SECRET:-super_secret_internal_token_2026}
+      - RAW_DATA_DIR=/app/data/raw
+      - INDEX_DIR=/app/data/index
+    expose:
+      - "8000"
+    volumes:
+      - ./data/raw:/app/data/raw
+      - ./data/index:/app/data/index
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - app_network
+
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile
+    container_name: traffic_assistant_api
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      ai-service:
+        condition: service_healthy
+    environment:
+      - PORT=5000
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:postgrespassword@postgres:5432/traffic_assistant?schema=public
+      - AI_SERVICE_URL=http://ai-service:8000
+      - AI_SERVICE_SHARED_SECRET=${AI_SERVICE_SHARED_SECRET:-super_secret_internal_token_2026}
+      - INTERNAL_API_KEY=${INTERNAL_API_KEY:-super_secret_internal_token_2026}
+      - JWT_SECRET=${JWT_SECRET:-super_secret_traffic_assistant_jwt_2026}
+      - CLIENT_URL=${CLIENT_URL:-http://localhost:5173}
+      - TRUST_PROXY=true
+      - RATE_LIMIT_GLOBAL_MAX=100
+      - RATE_LIMIT_CHAT_MAX=20
+      - RATE_LIMIT_FINES_MAX=30
+      - RATE_LIMIT_WINDOW_MS=60000
+      - AI_TIMEOUT_CONNECT_MS=3000
+      - AI_TIMEOUT_FIRST_BYTE_MS=10000
+      - AI_TIMEOUT_TOTAL_MS=30000
+    ports:
+      - "5000:5000"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:5000/api/v1/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - app_network
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    container_name: traffic_assistant_web
+    restart: unless-stopped
+    depends_on:
+      - api
+    ports:
+      - "80:80"
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  postgres_data:

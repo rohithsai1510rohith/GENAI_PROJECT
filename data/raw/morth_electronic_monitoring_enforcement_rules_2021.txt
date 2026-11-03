@@ -1,0 +1,35 @@
+CENTRAL MOTOR VEHICLES (ELECTRONIC MONITORING AND ENFORCEMENT OF ROAD SAFETY) RULES, 2021
+MINISTRY OF ROAD TRANSPORT AND HIGHWAYS (MoRTH), GOVERNMENT OF INDIA
+NOTIFICATION G.S.R. 575(E), NEW DELHI, DATED 11TH AUGUST, 2021
+PUBLISHED IN THE GAZETTE OF INDIA, EXTRAORDINARY, PART II, SECTION 3, SUB-SECTION (i)
+
+In exercise of the powers conferred by section 136A of the Motor Vehicles Act, 1988 (59 of 1988), the Central Government hereby makes the following rules for electronic monitoring and enforcement of road safety:
+
+Rule 167A: Electronic Monitoring and Enforcement of Road Safety
+(1) The State Government shall ensure that electronic enforcement devices are placed at high-risk and high-density corridors on National Highways, State Highways, and critical junctions of major cities with a population of more than ten lakhs.
+(2) Electronic enforcement devices include:
+(a) Speed Cameras (fixed and mobile radar / Doppler radar units);
+(b) Closed-Circuit Television (CCTV) cameras;
+(c) Speed Guns;
+(d) Automatic Number Plate Recognition (ANPR) cameras;
+(e) Red Light Violation Detection (RLVD) systems;
+(f) Weigh-in-Motion (WIM) sensors;
+(g) Any other electronic device approved by the State Government.
+
+Procedures for Issuing Electronic Challan (E-Challan):
+(1) Notice of Violation (E-Challan):
+An electronic challan shall be generated through an automated IT system and shall contain clear photographic evidence of the motor vehicle, the registration plate, the location (GPS coordinates), date, time stamp, and the specific statutory provision contravened.
+(2) Service of Notice:
+The notice of violation and e-challan shall be sent to the registered owner of the motor vehicle through electronic medium (SMS to registered mobile number or email) or physical speed post within fifteen (15) days of the occurrence of the violation.
+(3) Payment Window:
+The fine specified in the e-challan may be compounded and paid through the official national Parivahan portal (echallan.parivahan.gov.in) or jurisdictional transport portal within thirty (30) to sixty (60) days.
+
+Use of Body-Worn Cameras and Dash Cameras by Enforcement Officers:
+(1) Uniformed police officers and transport enforcement officials shall be equipped with body-worn cameras or vehicle dashboard cameras during vehicle checks, interceptor operations, or challan issuance.
+(2) All recorded footage shall be archived in the state command and control centre for a minimum period of thirty (30) days for transparency and dispute resolution.
+
+Adjudication and Virtual Courts:
+(1) If an electronic challan is not contested and remains unpaid past sixty days, it shall be automatically transmitted to the designated Virtual Court for legal adjudication.
+(2) Citizens may pay the judicial fine or contest liability through the Virtual Courts portal (vcourts.gov.in) without physical appearance in court.
+(3) Vehicle services on the national Vahan database (including transfer of ownership, renewal of registration, and issuance of fitness certificate) may be withheld until all pending e-challans are resolved.
+

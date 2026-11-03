@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /chat
+Allow: /fines
+Allow: /knowledge
+Allow: /documents
+Allow: /about
+Allow: /privacy
+Disallow: /admin
+Disallow: /admin/login
+Disallow: /api/
+
+Sitemap: https://parivahan-ai.gov.in/sitemap.xml

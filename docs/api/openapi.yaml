@@ -1,0 +1,486 @@
+openapi: 3.0.3
+info:
+  title: Traffic Rules & Fines Assistant API Gateway
+  description: >
+    Strictly grounded legal API Gateway connecting clients to the verified Indian statutory RAG microservice.
+    Provides Server-Sent Events (SSE) streaming, fine search, document listings, user feedback, and service health monitoring.
+  version: 1.0.0
+servers:
+  - url: http://localhost:5000/api/v1
+    description: Local API Gateway
+
+paths:
+  /chat:
+    post:
+      summary: Stream chat response for legal traffic questions
+      description: >
+        Initiates a Server-Sent Events (SSE) connection proxying the grounded AI service.
+        Flushes headers immediately, emits heartbeats, and aborts upstream queries if client disconnects.
+      parameters:
+        - in: header
+          name: X-Anonymous-Id
+          schema:
+            type: string
+            format: uuid
+          required: false
+          description: Anonymous client identifier. If missing, generated and returned in meta event.
+        - in: header
+          name: X-Request-ID
+          schema:
+            type: string
+          required: false
+          description: Request tracking ID. Preserved and echoed in response header.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: SSE event stream
+          content:
+            text/event-stream:
+              schema:
+                type: string
+                description: Sequence of SSE formatted events (meta, token, sources, related, done, error)
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+        '429':
+          description: Rate limit exceeded (20 requests per minute per IP + anonymous ID)
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+              description: Seconds until rate limit window resets
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+        '503':
+          description: AI Service temporarily unavailable before stream start
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+
+  /fines/search:
+    get:
+      summary: Search traffic penalties and fines
+      description: Returns matching rule, statutory fine text, and sources strictly derived from retrieved legal text.
+      parameters:
+        - in: query
+          name: q
+          required: true
+          schema:
+            type: string
+            minLength: 2
+            maxLength: 100
+          description: Offence or rule query (e.g. 'drunk driving', 'speeding', 'helmet')
+        - in: query
+          name: jurisdiction
+          required: false
+          schema:
+            type: string
+            enum: [Central, Delhi, Maharashtra, Karnataka, Tamil Nadu, Uttar Pradesh, all]
+      responses:
+        '200':
+          description: Matching rules and statutory penalties
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FinesSearchResponse'
+        '400':
+          description: Invalid query parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+        '429':
+          description: Rate limit exceeded (30 requests/min)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+
+  /documents:
+    get:
+      summary: Retrieve verified legal documents
+      description: Returns public list of statutory acts, rules, and notifications indexed in the knowledge base.
+      parameters:
+        - in: query
+          name: q
+          required: false
+          schema:
+            type: string
+          description: Keyword search across title and filename
+        - in: query
+          name: type
+          required: false
+          schema:
+            type: string
+            enum: [Act, Rules, Notification]
+        - in: query
+          name: jurisdiction
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of indexed documents
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentsResponse'
+        '400':
+          description: Invalid query parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+
+  /feedback:
+    post:
+      summary: Submit user feedback on chat answers
+      description: Records thumbs up or thumbs down rating for a message, upserted per anonymous ID.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequest'
+      responses:
+        '200':
+          description: Feedback recorded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeedbackResponse'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+        '404':
+          description: Target messageId not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorEnvelope'
+
+  /health:
+    get:
+      summary: Health check endpoint
+      description: Reports operational status of API, database, and upstream AI microservice. Returns degraded rather than crashing if a dependency is offline.
+      responses:
+        '200':
+          description: Service health report
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+
+components:
+  schemas:
+    ChatRequest:
+      type: object
+      required:
+        - question
+      additionalProperties: false
+      properties:
+        question:
+          type: string
+          minLength: 3
+          maxLength: 500
+          description: User traffic legal question (control characters stripped)
+        history:
+          type: array
+          maxItems: 6
+          items:
+            type: object
+            required:
+              - role
+              - content
+            additionalProperties: false
+            properties:
+              role:
+                type: string
+                enum: [user, assistant]
+              content:
+                type: string
+                maxLength: 2000
+        filters:
+          type: object
+          additionalProperties: false
+          properties:
+            jurisdiction:
+              type: string
+              default: Central
+              enum: [Central, Delhi, Maharashtra, Karnataka, Tamil Nadu, Uttar Pradesh, all]
+            topic:
+              type: string
+              default: fines
+              enum: [fines, documents, e-challan, road-safety]
+        sessionId:
+          type: string
+          format: uuid
+
+    FeedbackRequest:
+      type: object
+      required:
+        - messageId
+        - rating
+      additionalProperties: false
+      properties:
+        messageId:
+          type: string
+          minLength: 1
+        rating:
+          type: string
+          enum: [thumbs_up, thumbs_down]
+        reason:
+          type: string
+          maxLength: 500
+          nullable: true
+
+    SourceItem:
+      type: object
+      required:
+        - documentTitle
+        - section
+        - page
+        - excerpt
+        - score
+        - isTestData
+      properties:
+        documentTitle:
+          type: string
+        section:
+          type: string
+        page:
+          type: integer
+        chunkText:
+          type: string
+          description: Full text of the retrieved statutory chunk
+        excerpt:
+          type: string
+          description: Contiguous substring excerpt of chunkText
+        score:
+          type: number
+        sourceUrl:
+          type: string
+          nullable: true
+        isTestData:
+          type: boolean
+
+    ErrorEnvelope:
+      type: object
+      required:
+        - success
+        - error
+        - requestId
+      properties:
+        success:
+          type: boolean
+          example: false
+        error:
+          type: object
+          required:
+            - code
+            - message
+          properties:
+            code:
+              type: string
+              enum:
+                - VALIDATION_ERROR
+                - NOT_FOUND
+                - RATE_LIMITED
+                - AI_UNAVAILABLE
+                - INTERNAL_SERVER_ERROR
+                - PAYLOAD_TOO_LARGE
+            message:
+              type: string
+            details:
+              nullable: true
+        requestId:
+          type: string
+
+    FinesSearchResponse:
+      type: object
+      required:
+        - success
+        - data
+        - requestId
+      properties:
+        success:
+          type: boolean
+          example: true
+        data:
+          type: object
+          properties:
+            query:
+              type: string
+            grounded:
+              type: boolean
+            confidenceTier:
+              type: string
+              enum: [HIGH, MEDIUM, LOW]
+            topScore:
+              type: number
+            containsTestData:
+              type: boolean
+            count:
+              type: integer
+            results:
+              type: array
+              items:
+                type: object
+                properties:
+                  rule:
+                    type: string
+                  documentTitle:
+                    type: string
+                  fineText:
+                    type: string
+                  section:
+                    type: string
+                  page:
+                    type: integer
+                  sourceUrl:
+                    type: string
+                    nullable: true
+                  isTestData:
+                    type: boolean
+                  score:
+                    type: number
+        requestId:
+          type: string
+
+    DocumentsResponse:
+      type: object
+      required:
+        - success
+        - data
+        - requestId
+      properties:
+        success:
+          type: boolean
+          example: true
+        data:
+          type: object
+          properties:
+            documents:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  title:
+                    type: string
+                  rawFilename:
+                    type: string
+                    nullable: true
+                  type:
+                    type: string
+                  jurisdiction:
+                    type: string
+                  effectiveDate:
+                    type: string
+                  sourceUrl:
+                    type: string
+                    nullable: true
+                  status:
+                    type: string
+                  chunkCount:
+                    type: integer
+                  isTestData:
+                    type: boolean
+                  indexedAt:
+                    type: string
+            total:
+              type: integer
+        requestId:
+          type: string
+
+    FeedbackResponse:
+      type: object
+      required:
+        - success
+        - data
+        - requestId
+      properties:
+        success:
+          type: boolean
+          example: true
+        data:
+          type: object
+          properties:
+            feedbackId:
+              type: string
+            messageId:
+              type: string
+            anonymousId:
+              type: string
+            rating:
+              type: string
+            reason:
+              type: string
+              nullable: true
+        requestId:
+          type: string
+
+    HealthResponse:
+      type: object
+      required:
+        - success
+        - data
+        - requestId
+      properties:
+        success:
+          type: boolean
+          example: true
+        data:
+          type: object
+          properties:
+            status:
+              type: string
+              enum: [ok, degraded]
+            uptime:
+              type: number
+            timestamp:
+              type: string
+            version:
+              type: string
+            dependencies:
+              type: object
+              properties:
+                database:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      enum: [up, down]
+                    latencyMs:
+                      type: number
+                    error:
+                      type: string
+                      nullable: true
+                aiService:
+                  type: object
+                  properties:
+                    status:
+                      type: string
+                      enum: [up, down]
+                    error:
+                      type: string
+                      nullable: true
+            isTestData:
+              type: boolean
+        requestId:
+          type: string

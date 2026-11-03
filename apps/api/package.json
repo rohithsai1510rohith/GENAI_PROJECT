@@ -1,0 +1,52 @@
+{
+  "name": "traffic-assistant-api",
+  "version": "1.0.0",
+  "description": "Node.js Express API Gateway with Prisma ORM for Traffic Assistant",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "tsx watch src/server.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:push": "prisma db push",
+    "sync:documents": "tsx src/scripts/syncDocuments.ts",
+    "admin:create": "tsx src/scripts/createAdmin.ts",
+    "test": "jest --passWithNoTests --forceExit",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.10.2",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/pino-http": "^5.8.4",
+    "argon2": "^0.45.1",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "express-rate-limit": "^7.2.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "pino": "^10.4.0",
+    "pino-http": "^11.0.0",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^20.11.24",
+    "@types/supertest": "^6.0.2",
+    "embedded-postgres": "^18.4.0-beta.17",
+    "jest": "^29.7.0",
+    "prisma": "^5.10.2",
+    "supertest": "^6.3.4",
+    "ts-jest": "^29.1.2",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  }
+}

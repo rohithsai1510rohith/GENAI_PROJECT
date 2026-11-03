@@ -1,0 +1,127 @@
+@import "./tokens.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Accessible focus styling */
+*:focus-visible {
+  outline: 2px solid var(--accent-primary);
+  outline-offset: 2px;
+}
+
+/* Subtle pulse for streaming tokens */
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.animate-pulse-subtle {
+  animation: pulseSubtle 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Markdown styling inside prose-legal */
+.prose-legal {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.prose-legal h1, .prose-legal h2, .prose-legal h3, .prose-legal h4 {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.prose-legal h3 {
+  font-size: 1.1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.25rem;
+}
+
+.prose-legal p {
+  margin-bottom: 0.75rem;
+}
+
+.prose-legal ul, .prose-legal ol {
+  margin-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  list-style-type: disc;
+}
+
+.prose-legal li {
+  margin-bottom: 0.35rem;
+}
+
+.prose-legal strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.prose-legal blockquote {
+  border-left: 3px solid var(--border-focus);
+  padding-left: 0.85rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin: 0.75rem 0;
+  background-color: var(--bg-card-subtle);
+  padding-top: 0.35rem;
+  padding-bottom: 0.35rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* Skeleton shimmer animation */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    var(--bg-card-subtle) 50%,
+    var(--bg-secondary) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+/* Prefers-reduced-motion strict compliance: instant state changes, zero fades or transforms */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

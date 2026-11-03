@@ -1,0 +1,71 @@
+# Node
+node_modules/
+dist/
+build/
+.npm/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.ruff_cache/
+
+# Local Database & Embedded Postgres
+.pgdata/
+*.sqlite
+*.sqlite3
+
+# Data directories: Track raw and indexed verified data, ignore archive & processed
+data/archive/
+data/processed/*.json
+apps/data/
+
+# Environment
+.env
+.env.local
+.env.*.local
+!*.example
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Testing & Coverage
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Temporary test scratch files
+admin_token.txt
+login.json
+chat_query.json
+chat_test.json
+deactivate.json
+lh_*.json
+test_hoverboard.pdf
+check_fresh29.py
+create_test_pdf.py
+evaluate_fine_matches.py
+run_curl_acceptance.ps1
+run_step5.ps1
+extract_prd.ps1
+prd_extracted.txt

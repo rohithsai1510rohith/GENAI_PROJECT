@@ -1,0 +1,39 @@
+{
+  "name": "traffic-rules-assistant-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Traffic Rules and Fines Assistant Using Generative AI (React + Node.js + Python RAG)",
+  "workspaces": [
+    "apps/web",
+    "apps/api"
+  ],
+  "scripts": {
+    "dev:web": "npm --prefix apps/web run dev",
+    "dev:api": "npm --prefix apps/api run dev",
+    "build": "npm --prefix apps/web run build && npm --prefix apps/api run build",
+    "build:web": "npm --prefix apps/web run build",
+    "build:api": "npm --prefix apps/api run build",
+    "test:web": "npm --prefix apps/web run test",
+    "test:api": "npm --prefix apps/api run test",
+    "admin:create": "npm --prefix apps/api run admin:create",
+    "type-check": "npm --prefix apps/web run type-check && npm --prefix apps/api run type-check",
+    "lint:py": "ruff check --isolated --ignore=BLE001 apps/ai-service",
+    "lint": "npm run type-check && npm run lint:py",
+    "law-check": "python apps/ai-service/app/eval/law_check.py"
+  },
+  "keywords": [
+    "rag",
+    "genai",
+    "traffic-assistant",
+    "faiss",
+    "groq",
+    "react",
+    "typescript"
+  ],
+  "author": "Antigravity Engineering",
+  "license": "MIT",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1"
+  }
+}

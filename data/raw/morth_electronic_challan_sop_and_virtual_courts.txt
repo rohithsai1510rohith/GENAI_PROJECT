@@ -1,0 +1,29 @@
+MORTH STANDARD OPERATING PROCEDURE FOR ELECTRONIC CHALLAN AND VIRTUAL COURTS
+Notification RT-11036/64/2019-MVL and Rule 167A of Central Motor Vehicles Rules
+Ministry of Road Transport and Highways (MoRTH) & E-Courts Project, Supreme Court of India
+Jurisdiction: Central (Applicable throughout India) | Effective Date: 2020-01-16
+
+Statutory Framework for Electronic Enforcement and E-Challans
+(1) Under Rule 167A of CMVR and Section 136A of the Motor Vehicles Act, 1988, traffic violations detected through automated electronic monitoring devices (CCTV, speed cameras, ANPR, RLVD) are automatically processed via the national Parivahan E-Challan system.
+(2) Every electronic challan must contain:
+(a) High-resolution photographic or video evidence showing vehicle registration number, driver (where visible), and violation context;
+(b) Exact GPS geographical coordinates, location name, date, and timestamp of the violation;
+(c) The specific section and legal provision violated, along with the statutory penalty amount;
+(d) Unique electronic challan number and digital signature of the issuing authority.
+
+Rule 4: Service of Notice and Grievance Redressal Mechanism
+(1) Notice of the e-challan must be transmitted to the registered owner's mobile number via SMS and email within fifteen (15) days of detection.
+(2) If the vehicle was sold, stolen, or driven by another person, the registered owner may file an online representation or contest the challan within fifteen (15) days through the Parivahan portal (echallan.parivahan.gov.in).
+(3) The designated Grievance Redressal Officer shall review the photographic evidence and either confirm or dismiss the notice within thirty (30) days.
+
+Compounding of Offences and Virtual Court Resolution
+(1) Section 200: Compounding of Specified Offences
+(a) Compoundable offences (such as helmet violations, seat belt violations, minor over-speeding, red light jumping) may be settled online by paying the prescribed compounding fee on the Parivahan portal within ninety (90) days of challan issuance.
+(b) Once the compounding fee is paid and verified electronically, all proceedings in respect of that offence stand terminated, and no court summons shall issue.
+(2) Section 208 and Virtual Court Referral:
+(a) If the e-challan remains unpaid after the compounding window (90 days), or if the offence is non-compoundable (such as drunken driving under Section 185, or dangerous driving causing grievous hurt), the case is automatically transmitted to the Virtual Court (vcourts.gov.in).
+(b) The Virtual Court issues a digital summons to the registered owner or driver via SMS and email.
+(c) The accused has two legal options in the Virtual Court:
+  - Option 1 (Plead Guilty): Accept the violation and pay the fine through the online payment gateway on the Virtual Court portal without physical court appearance.
+  - Option 2 (Contest / Claim Trial): Reject the electronic summons, causing the matter to be transferred automatically to the regular jurisdictional judicial magistrate court for regular trial.
+

@@ -1,0 +1,471 @@
+{
+  "total": 50,
+  "matches": 29,
+  "rate": 57.99999999999999,
+  "results": [
+    {
+      "q": "What is the penalty for driving without a valid driving licence under Section 181?",
+      "expected_sec": "181",
+      "matched": true,
+      "found_amounts": [
+        "5,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 181: Driving vehicles in contravention of Section 3 or Section 4 (Driving without a valid Driving Licence or underage driving)"
+    },
+    {
+      "q": "What is the fine for riding a motorcycle without wearing a protective helmet?",
+      "expected_sec": "194D",
+      "matched": true,
+      "found_amounts": [
+        "1,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194D: Penalty for not wearing protective headgear (No Helmet)"
+    },
+    {
+      "q": "What is the penalty for drunken driving under Section 185 for first offence?",
+      "expected_sec": "185",
+      "matched": true,
+      "found_amounts": [
+        "10,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 185: Driving by a drunken person or by a person under the influence of drugs (Drunk Driving)"
+    },
+    {
+      "q": "What happens if a juvenile or minor drives a motor vehicle under Section 199A?",
+      "expected_sec": "199A",
+      "matched": true,
+      "found_amounts": [
+        "25,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 199A: Offences by juveniles (Underage Driving by Minor)"
+    },
+    {
+      "q": "What is the fine for jumping a red traffic light or dangerous driving?",
+      "expected_sec": "184",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "Section 184: Driving dangerously (Dangerous Driving / Rash Driving / Red Light Jumping / Handheld Mobile Use while driving)"
+    },
+    {
+      "q": "What is the penalty for not wearing a seatbelt while driving a light motor vehicle?",
+      "expected_sec": "194B",
+      "matched": true,
+      "found_amounts": [
+        "1,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194B: Use of safety belts and seating of children (Seatbelt Violation)"
+    },
+    {
+      "q": "What is the fine for carrying more than one pillion rider on a two wheeler (triple riding)?",
+      "expected_sec": "194C",
+      "matched": true,
+      "found_amounts": [
+        "1,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194C: Penalty for violation of safety measures for motorcycle drivers and pillion riders (Helmet Violation and Triple Riding)"
+    },
+    {
+      "q": "What is the penalty for driving an uninsured vehicle without third party insurance?",
+      "expected_sec": "196",
+      "matched": true,
+      "found_amounts": [
+        "2,000",
+        "4,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 196: Driving uninsured vehicle (No Motor Insurance)"
+    },
+    {
+      "q": "What is the fine for not allowing free passage to emergency vehicles like ambulances and fire tenders?",
+      "expected_sec": "194E",
+      "matched": true,
+      "found_amounts": [
+        "10,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194E: Failure to allow free passage to emergency vehicles (Ambulance, Fire Brigade)"
+    },
+    {
+      "q": "What is the fine for exceeding lawful speed limits or speeding under Section 183?",
+      "expected_sec": "183",
+      "matched": true,
+      "found_amounts": [
+        "1,000",
+        "2,000",
+        "4,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 183: Driving at excessive speed (Speeding)"
+    },
+    {
+      "q": "What is the penalty for overloading a goods vehicle under Section 194?",
+      "expected_sec": "194",
+      "matched": true,
+      "found_amounts": [
+        "20,000",
+        "2,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194: Driving vehicle exceeding permissible weight (Overloading of Goods Vehicles)"
+    },
+    {
+      "q": "What is the penalty for using a handheld mobile phone while driving a vehicle?",
+      "expected_sec": "184",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "Section 184: Driving dangerously (Dangerous Driving / Rash Driving / Red Light Jumping / Handheld Mobile Use while driving)"
+    },
+    {
+      "q": "What is the fine for unauthorized racing or trial of speed on public roads?",
+      "expected_sec": "189",
+      "matched": true,
+      "found_amounts": [
+        "5,000",
+        "10,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 189: Racing and trials of speed"
+    },
+    {
+      "q": "What is the punishment for driving a vehicle without valid registration certificate (RC)?",
+      "expected_sec": "192",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "Rule 139: Production of licence and certificate of registration"
+    },
+    {
+      "q": "What is the fine for driving a vehicle without a valid fitness certificate under Section 192A?",
+      "expected_sec": "192A",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "Rule 139: Production of licence and certificate of registration"
+    },
+    {
+      "q": "What is the penalty for disobeying orders of traffic police or obstructing official duty?",
+      "expected_sec": "179",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "PART III: E-CHALLAN PROCEDURES AND ELECTRONIC ENFORCEMENT"
+    },
+    {
+      "q": "What is the fine for driving without helmet for passenger or pillion rider?",
+      "expected_sec": "194D",
+      "matched": true,
+      "found_amounts": [
+        "1,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194D: Penalty for not wearing protective headgear (No Helmet)"
+    },
+    {
+      "q": "What is the general penalty for traffic offences where no specific punishment is provided?",
+      "expected_sec": "177",
+      "matched": true,
+      "found_amounts": [
+        "500"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 177: General provision for punishment of offences"
+    },
+    {
+      "q": "What is the fine for repeated or subsequent offence under Section 177A regulations?",
+      "expected_sec": "177A",
+      "matched": true,
+      "found_amounts": [
+        "500"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 177A: Penalty for contravention of regulations made under Section 118"
+    },
+    {
+      "q": "What is the fine for driving an unregistered vehicle for second or subsequent offence?",
+      "expected_sec": "192",
+      "matched": true,
+      "found_amounts": [
+        "10,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 192: Using vehicle without registration (Unregistered Vehicle)"
+    },
+    {
+      "q": "Can vehicle owner be fined if an unauthorized person without licence drives their car?",
+      "expected_sec": "180",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "PART II: DRIVING LICENCE VALIDITY AND RENEWAL GUIDELINES"
+    },
+    {
+      "q": "What is the punishment for driving when mentally or physically unfit to drive?",
+      "expected_sec": "186",
+      "matched": true,
+      "found_amounts": [
+        "1,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 186: Driving when mentally or physically unfit to drive"
+    },
+    {
+      "q": "What is the fine for not wearing a seatbelt for children under 14 years in a car?",
+      "expected_sec": "194B",
+      "matched": true,
+      "found_amounts": [
+        "1,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194B: Use of safety belts and seating of children (Seatbelt Violation)"
+    },
+    {
+      "q": "What is the fine for overloading passengers in a stage carriage bus or maxi cab?",
+      "expected_sec": "194A",
+      "matched": true,
+      "found_amounts": [
+        "200"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194A: Carriage of excess passengers (Overloading in Passenger Vehicles)"
+    },
+    {
+      "q": "What is the fine for using unauthorized horn or driving without silencer causing noise pollution?",
+      "expected_sec": "194F",
+      "matched": true,
+      "found_amounts": [
+        "1,000",
+        "2,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194F: Use of horns and silence zones"
+    },
+    {
+      "q": "What is the fine for using vehicle in an unsafe condition violating safety standards?",
+      "expected_sec": "190",
+      "matched": true,
+      "found_amounts": [
+        "1,500"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 190: Using vehicle in unsafe condition"
+    },
+    {
+      "q": "What is the fine for commercial transport vehicles operating without valid permit?",
+      "expected_sec": "192A",
+      "matched": true,
+      "found_amounts": [
+        "10,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 192A: Using vehicle without permit (Commercial vehicles)"
+    },
+    {
+      "q": "What is the penalty for hit and run accident involving grievous hurt or death?",
+      "expected_sec": "161",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": false,
+      "top_sec": "General Statutory Provision"
+    },
+    {
+      "q": "What is the fine for driving against flow of traffic on one way street in Delhi?",
+      "expected_sec": "184",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": false,
+      "top_sec": "General Statutory Provision"
+    },
+    {
+      "q": "What is the fine for driving without pollution certificate (PUC) under 2019 amendment?",
+      "expected_sec": "190",
+      "matched": true,
+      "found_amounts": [
+        "10,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 190: Using vehicle in unsafe condition"
+    },
+    {
+      "q": "What is the penalty for refusing to take a breathalyzer test when ordered by traffic police?",
+      "expected_sec": "185",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": false,
+      "top_sec": "General Statutory Provision"
+    },
+    {
+      "q": "What is the punishment for fleeing the scene of an accident without reporting to police?",
+      "expected_sec": "187",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": false,
+      "top_sec": "General Statutory Provision"
+    },
+    {
+      "q": "What is the fine for triple riding on two wheeler in Maharashtra?",
+      "expected_sec": "194C",
+      "matched": true,
+      "found_amounts": [
+        "1,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194C: Penalty for violation of safety measures for motorcycle drivers and pillion riders (Helmet Violation and Triple Riding)"
+    },
+    {
+      "q": "What is the fine for not carrying physical driving licence if not available in DigiLocker?",
+      "expected_sec": "177",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "PART II: DRIVING LICENCE VALIDITY AND RENEWAL GUIDELINES"
+    },
+    {
+      "q": "What is the penalty for driving a commercial vehicle without commercial badge or endorsement?",
+      "expected_sec": "181",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "General Statutory Provision"
+    },
+    {
+      "q": "What is the fine for driving vehicle with expired registration certificate beyond grace period?",
+      "expected_sec": "192",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "Section 14 & 15: Validity and Renewal of Driving Licences"
+    },
+    {
+      "q": "What is the fine for overtaking from wrong side or violating lane discipline?",
+      "expected_sec": "184",
+      "matched": true,
+      "found_amounts": [
+        "1,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 177A: Penalty for contravention of regulations made under Section 118"
+    },
+    {
+      "q": "What is the punishment for driving a vehicle after licence has been suspended or revoked?",
+      "expected_sec": "182",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "Section 14 & 15: Validity and Renewal of Driving Licences"
+    },
+    {
+      "q": "What is the fine for driving under influence of narcotic drugs under Section 185?",
+      "expected_sec": "185",
+      "matched": true,
+      "found_amounts": [
+        "10,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 185: Driving by a drunken person or by a person under the influence of drugs (Drunk Driving)"
+    },
+    {
+      "q": "What is the penalty for repeating dangerous driving within 3 years?",
+      "expected_sec": "184",
+      "matched": true,
+      "found_amounts": [
+        "10,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 184: Driving dangerously (Dangerous Driving / Rash Driving / Red Light Jumping / Handheld Mobile Use while driving)"
+    },
+    {
+      "q": "What is the penalty for driving uninsured vehicle for second offence?",
+      "expected_sec": "196",
+      "matched": true,
+      "found_amounts": [
+        "4,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 196: Driving uninsured vehicle (No Motor Insurance)"
+    },
+    {
+      "q": "What is the penalty for driving without licence for second offence?",
+      "expected_sec": "181",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "General Statutory Provision"
+    },
+    {
+      "q": "What fine applies for defective number plate not conforming to standard?",
+      "expected_sec": "177",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "PART III: E-CHALLAN PROCEDURES AND ELECTRONIC ENFORCEMENT"
+    },
+    {
+      "q": "What is the fine for driving with unauthorized red or blue beacon light?",
+      "expected_sec": "177",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": false,
+      "top_sec": "Section 184: Driving dangerously (Dangerous Driving / Rash Driving / Red Light Jumping / Handheld Mobile Use while driving)"
+    },
+    {
+      "q": "What is the fine for parking on footpaths or blocking traffic under Section 177?",
+      "expected_sec": "177",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "General Statutory Provision"
+    },
+    {
+      "q": "What is the penalty under Section 194 for refusing to weigh overloaded goods vehicle?",
+      "expected_sec": "194",
+      "matched": true,
+      "found_amounts": [
+        "20,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194: Driving vehicle exceeding permissible weight (Overloading of Goods Vehicles)"
+    },
+    {
+      "q": "What is the penalty for an unauthorized person using conductor licence?",
+      "expected_sec": "182",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": false,
+      "top_sec": "PART II: DRIVING LICENCE VALIDITY AND RENEWAL GUIDELINES"
+    },
+    {
+      "q": "What is the fine for driving vehicle without safety glass or defective mirrors?",
+      "expected_sec": "177",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": false,
+      "top_sec": "General Statutory Provision"
+    },
+    {
+      "q": "What fine applies for failing to yield right of way at roundabout or pedestrian crossing?",
+      "expected_sec": "177",
+      "matched": false,
+      "found_amounts": [],
+      "is_grounded": true,
+      "top_sec": "General Statutory Provision"
+    },
+    {
+      "q": "What is the fine for carrying children without child restraint safety harness?",
+      "expected_sec": "194B",
+      "matched": true,
+      "found_amounts": [
+        "1,000"
+      ],
+      "is_grounded": true,
+      "top_sec": "Section 194B: Use of safety belts and seating of children (Seatbelt Violation)"
+    }
+  ]
+}

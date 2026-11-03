@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090d16"/>
+      <stop offset="100%" stop-color="#131c31"/>
+    </linearGradient>
+    <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="150" r="300" fill="#1d4ed8" opacity="0.15" filter="blur(60px)"/>
+  <circle cx="200" cy="500" r="250" fill="#3b82f6" opacity="0.12" filter="blur(50px)"/>
+  
+  <!-- Shield Icon -->
+  <g transform="translate(100, 120) scale(3.5)">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="url(#blueGlow)" stroke-width="2"/>
+    <path d="m9 12 2 2 4-4" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="240" y="195" font-family="'Inter', -apple-system, sans-serif" font-size="52" font-weight="700" fill="#ffffff">Parivahan AI Assistant</text>
+  <text x="240" y="245" font-family="'Inter', -apple-system, sans-serif" font-size="28" font-weight="500" fill="#94a3b8">Traffic Rules, Statutory Fines &amp; Licensing</text>
+  
+  <text x="100" y="370" font-family="'Inter', -apple-system, sans-serif" font-size="44" font-weight="600" fill="#f8fafc">Grounded Legal AI Intelligence</text>
+  <text x="100" y="425" font-family="'Inter', -apple-system, sans-serif" font-size="26" font-weight="400" fill="#94a3b8">Strictly derived from Motor Vehicles (Amendment) Act 2019 &amp; CMVR 1989</text>
+  <text x="100" y="465" font-family="'Inter', -apple-system, sans-serif" font-size="26" font-weight="400" fill="#94a3b8">Zero hallucination • Verifiable statutory citations • Fast RAG retrieval</text>
+  
+  <!-- Pill Badges -->
+  <g transform="translate(100, 520)">
+    <rect width="180" height="42" rx="21" fill="#1e293b" stroke="#334155"/>
+    <text x="90" y="27" font-family="'Inter', -apple-system, sans-serif" font-size="16" font-weight="500" fill="#38bdf8" text-anchor="middle">100% Grounded</text>
+  </g>
+  <g transform="translate(300, 520)">
+    <rect width="180" height="42" rx="21" fill="#1e293b" stroke="#334155"/>
+    <text x="90" y="27" font-family="'Inter', -apple-system, sans-serif" font-size="16" font-weight="500" fill="#34d399" text-anchor="middle">Official Citations</text>
+  </g>
+  <g transform="translate(500, 520)">
+    <rect width="210" height="42" rx="21" fill="#1e293b" stroke="#334155"/>
+    <text x="105" y="27" font-family="'Inter', -apple-system, sans-serif" font-size="16" font-weight="500" fill="#fbbf24" text-anchor="middle">WCAG 2.1 AA Compliant</text>
+  </g>
+</svg>
